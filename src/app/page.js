@@ -1,24 +1,16 @@
-import Image from "next/image"
-import Link from "next/link"
+import Header from "@/components/Header"
 
 export default function Home() {
   return (
     <main>
-      <header className="bg-white border-b flex justify-between p-5">
-        <div className="flex gap-4">
-          <Link href={"/"}>Linkful</Link>
-          <nav className="flex gap-10 text-slate-500">
-            <Link href={"/about"}>About</Link>
-            <Link href={"/pricing"}>Pricing</Link>
-            <Link href={"/contact"}>Contact</Link>
-          </nav>
-        </div>
-        <nav className="flex gap-5 text-slate-500 text-lg">
-          <Link href={"/signin"}>Sign In</Link>
-          <Link href={"/register"}>Register</Link>
-        </nav>
-      </header>
-      <section></section>
+      <Header />
+      <section>
+        <h1 className="text-xl bold">Your one link for everything</h1>
+        <h2>
+          Share your links, social profiles, contact info, or anything on one
+          page.
+        </h2>
+      </section>{" "}
     </main>
   )
 }

@@ -1,6 +1,10 @@
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
 
-export default function Header() {
+export default async function Header() {
+  const session = await getServerSession(authOptions);
+  console.log(session);
   return (
     <header className="bg-white border-b flex justify-between p-5">
       <div className="flex gap-5">

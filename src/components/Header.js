@@ -1,6 +1,7 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
+import LogoutButton from "./buttons/LogoutButton";
 
 export default async function Header() {
   const session = await getServerSession(authOptions);
@@ -26,8 +27,18 @@ export default async function Header() {
             <option value="CN">Chinese</option>
           </select>
         </form>
-        <Link href={"/login"}>Login</Link>
-        <Link href={"/register"}>Register</Link>
+        {session ? (
+          <>
+            <Link href={"/account"}></Link>
+            {session?.user?.name}
+            <LogoutButton />
+          </>
+        ) : (
+          <>
+            <Link href={"/login"}>Login</Link>
+            <Link href={"/register"}>Register</Link>
+          </>
+        )}
       </nav>
     </header>
   );

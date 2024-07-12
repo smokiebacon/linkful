@@ -7,7 +7,7 @@ export default async function Header() {
   const session = await getServerSession(authOptions);
   console.log(session);
   return (
-    <header className="bg-white border-b flex justify-between p-5">
+    <header className="bg-red border-b flex justify-between p-5">
       <div className="flex gap-5">
         <Link href={"/"}>Linkful</Link>
         <nav className="flex gap-10 text-slate-500">
@@ -16,7 +16,7 @@ export default async function Header() {
           <Link href={"/contact"}>Contact</Link>
         </nav>
       </div>
-      <nav className="flex gap-5 text-slate-500 text-lg">
+      <nav className="flex gap-5 text-slate-500">
         <form>
           <select
             id="countries"
@@ -29,8 +29,9 @@ export default async function Header() {
         </form>
         {session ? (
           <>
-            <Link href={"/account"}></Link>
-            {session?.user?.name}
+            <Link href={"/account"} className="text-lg">
+              {session?.user?.name}
+            </Link>
             <LogoutButton />
           </>
         ) : (
